@@ -1,5 +1,7 @@
 # Expo React Native RSS Reader App
 
+[#React Cheatsheet](https://gist.github.com/tshego3/159bd9cebe9dcb0ae2e48393e0f5fe74)
+
 ## Project setup and dependencies
 
 - **Expo:** Managed workflow
