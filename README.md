@@ -1,6 +1,12 @@
 # Expo React Native RSS Reader App
 
-[#React Cheatsheet](https://gist.github.com/tshego3/159bd9cebe9dcb0ae2e48393e0f5fe74)
+* [React Cheatsheet](https://gist.github.com/tshego3/159bd9cebe9dcb0ae2e48393e0f5fe74)
+* [React Documentation](https://react.dev/learn)
+  * [React Navigation Documentation](https://reactnavigation.org/docs/getting-started)
+  * [Async Storage Documentation](https://react-native-async-storage.github.io/2.0/)
+* [React Native Documentation](https://reactnative.dev/docs/getting-started)
+  * [React Native Directory](https://reactnative.directory) 
+* [Expo Documentation](https://docs.expo.dev)
 
 ## Project setup and dependencies
 
