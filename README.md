@@ -22,6 +22,9 @@
 npx create-expo-app@latest ExpoFeedReader --template blank-typescript
 cd ExpoFeedReader
 
+# Native code support
+npx expo install expo-dev-client
+
 # Navigation
 npm i @react-navigation/native @react-navigation/drawer @react-navigation/stack
 npx expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-masked-view/masked-view
