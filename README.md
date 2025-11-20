@@ -1,4 +1,4 @@
-# Expo React Native RSS reader app
+# Expo React Native RSS Reader App
 
 ## Project setup and dependencies
 
