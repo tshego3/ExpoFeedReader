@@ -22,7 +22,7 @@ export default function FeedDetailScreen() {
             <body style="font-family: -apple-system, Roboto, Arial; padding: 16px;">
                 <h2>${escapeHtml(item.title)}</h2>
                 <p><a href="${item.link}">${item.link}</a></p>
-                <p>Open with the top-right button to view full article.</p>
+                <div>${item.content}</div>
             </body>
             </html>
         `);

@@ -12,9 +12,9 @@ const Stack = createStackNavigator<FeedStackParamList>();
 
 export default function FeedStackNavigator() {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="FeedList" component={FeedListScreen} options={{ title: 'RSS Reader' }} />
-            <Stack.Screen name="FeedDetail" component={FeedDetailScreen} options={{ title: 'Article' }} />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="FeedList" component={FeedListScreen} />
+            <Stack.Screen name="FeedDetail" component={FeedDetailScreen} />
         </Stack.Navigator>
     );
 }

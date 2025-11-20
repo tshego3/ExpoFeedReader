@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { View, RefreshControl } from 'react-native';
+import { View, ScrollView, RefreshControl } from 'react-native';
 import { Appbar, Chip, List, ActivityIndicator, IconButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { getFeeds } from '../services/storage';
-import { fetchFeed } from '../services/rss';
+import { fetchFeed, getItemHtml } from '../services/rss';
 
 type CombinedItem = {
     title: string;
     link: string;
     isoDate?: string;
+    content: string;
     sourceTitle: string;
 };
 
@@ -29,6 +30,7 @@ export default function FeedListScreen() {
                         title: it.title || '',
                         link: it.link || '',
                         isoDate: it.isoDate,
+                        content: getItemHtml(it),
                         sourceTitle: feed.title || s.title || s.url,
                     }));
                 })
@@ -58,11 +60,11 @@ export default function FeedListScreen() {
 
     return (
         <View style={{ flex: 1 }}>
-            <Appbar.Header>
+            {/* <Appbar.Header>
                 <Appbar.Action icon="menu" onPress={() => (navigation as any).openDrawer()} />
                 <Appbar.Content title="RSS Reader" />
                 <Appbar.Action icon="refresh" onPress={load} />
-            </Appbar.Header>
+            </Appbar.Header> */}
 
             <View style={{ paddingHorizontal: 12, paddingTop: 8, flexDirection: 'row', gap: 8 }}>
                 <Chip selected={filter === 'all'} onPress={() => setFilter('all')}>All</Chip>
@@ -75,20 +77,26 @@ export default function FeedListScreen() {
                     <ActivityIndicator />
                 </View>
             ) : (
-                <List.Section>
-                    <List.Subheader>{filtered.length} items</List.Subheader>
-                    {filtered.map((item, idx) => (
-                        <List.Item
-                            key={`${item.link}-${idx}`}
-                            title={item.title}
-                            description={item.sourceTitle}
-                            onPress={() => (navigation as any).navigate('FeedDetail', { item })}
-                            right={() => (
-                                <IconButton icon="open-in-new" onPress={() => (navigation as any).navigate('FeedDetail', { item })} />
-                            )}
-                        />
-                    ))}
-                </List.Section>
+                <ScrollView
+                    refreshControl={
+                        <RefreshControl refreshing={loading} onRefresh={load} />
+                    }
+                >
+                    <List.Section>
+                        <List.Subheader>{filtered.length} items</List.Subheader>
+                        {filtered.map((item, idx) => (
+                            <List.Item
+                                key={`${item.link}-${idx}`}
+                                title={item.title}
+                                description={item.sourceTitle}
+                                onPress={() => (navigation as any).navigate('FeedDetail', { item })}
+                                right={() => (
+                                    <IconButton icon="open-in-new" onPress={() => (navigation as any).navigate('FeedDetail', { item })} />
+                                )}
+                            />
+                        ))}
+                    </List.Section>
+                </ScrollView>
             )}
         </View>
     );

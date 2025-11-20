@@ -8,5 +8,5 @@ export async function fetchFeed(url: string) {
 }
 
 export function getItemHtml(item: rssParser.RSSItem) {
-    return item['content:encoded'] || item.content || '';
+  return item.content || item['content:encoded'] || 'No content available.';
 }
