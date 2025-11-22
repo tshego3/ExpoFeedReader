@@ -5,7 +5,8 @@
   * [React Navigation Documentation](https://reactnavigation.org/docs/getting-started)
   * [Async Storage Documentation](https://react-native-async-storage.github.io/2.0/)
 * [React Native Documentation](https://reactnative.dev/docs/getting-started)
-  * [React Native Directory](https://reactnative.directory) 
+  * [React Native Directory](https://reactnative.directory)
+  * [React Native Paper](https://reactnativepaper.com)
 * [Expo Documentation](https://docs.expo.dev)
 
 ## Project setup and dependencies
