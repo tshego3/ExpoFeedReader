@@ -8,6 +8,7 @@
   * [React Native Directory](https://reactnative.directory)
   * [React Native Paper](https://reactnativepaper.com)
 * [Expo Documentation](https://docs.expo.dev)
+  * [Expo UI](https://docs.expo.dev/versions/latest/sdk/ui/)
 
 ## Project setup and dependencies
 
@@ -42,7 +43,26 @@ npx expo install @expo/vector-icons
 
 # Start
 npx expo start
-```
+
+# Or run directly on specific platform
+npx expo start --ios # npm run ios
+npx expo run:ios --device 51F0082E-AC8D-4BD9-AD37-2A7811EA22A8
+npx expo start --android # npm run android
+npx expo run:android --device emulator-5554
+npx expo start --web # npm run web
+
+# When deploying on physical devices use the release configuration, as the debug configuration requires a development server
+npx expo run:ios --device 00008140-00062D3122D0801C --configuration Release
+
+# List available iOS simulators and their UDIDs
+xcrun simctl list devices
+# JSON output (easier to parse programmatically)
+xcrun simctl list devices --json
+# List available physical devices connected to your Mac and their UDIDs
+xcrun xctrace list devices
+
+# List connected Android devices/emulators
+adb devices```
 
 > The drawer and tab concepts are inspired by the Flutter repo’s “Updated drawer logic” and “Tab view bug fix” commits, while storage and link sharing reflect “Added shared preferences, url launcher and updated UI,” and “Added HTML rendering and link share”.
 
